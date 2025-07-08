@@ -48,9 +48,11 @@ export default function Movie() {
     }
   };
 
+  const production_url = "https://movie-recommender-backend-1-4sqw.onrender.com"
+
   const fetchNewBatch = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/getMovies?moviesCount=15');
+      const response = await fetch(`${production_url}/getMovies?moviesCount=15`);
       const data = await response.json();
       if (!data.movies || data.movies.length === 0) {
         throw new Error('Backend returned empty movie list!');
@@ -351,7 +353,7 @@ export default function Movie() {
                   onClick={async () => {
                     setLoading(true);
                     try {
-                      const response = await fetch('http://127.0.0.1:8000/recommendMovies', {
+                      const response = await fetch(`${production_url}0/recommendMovies`, {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json',
