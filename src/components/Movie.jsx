@@ -353,7 +353,7 @@ export default function Movie() {
                   onClick={async () => {
                     setLoading(true);
                     try {
-                      const response = await fetch(`${production_url}0/recommendMovies`, {
+                      const response = await fetch(`${production_url}/recommendMovies`, {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json',
